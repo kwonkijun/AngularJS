@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app='exerciseApp'>
+    <div ng-controller="ExpressCtrl" ng-init='grade="D"'>
+
+        <!-- ng-model exercise -->
+        <p>COUNT: <input type="text" ng-model="product.cnt"></p>
+        <p>PRICE: <input type="text" ng-model="product.price"></p>
+        <p>TOTAL: <input type="text" value = "{{product.cnt * product.price}}"></p>
+
+        <!-- ng-show, ng-hide exercise -->
+        Click me! <input type="checkbox" ng-model="result"> <br>
+        <div ng-show="result"> Result is true! </div>
+        <div ng-hide="result"> Result is false! </div>
+
+        <!-- ng-if exercise -->
+        Click me! <input type="checkbox" ng-model="result"> <br>
+        <div ng-if="result"> Result is true! </div>
+        <div ng-if="!result"> Result is false! </div>
+
+        <!-- ng-switch exercise -->
+        <div class ="panel-primary">
+            <div class ="panel-heading">Select Your Grade!</div>
+            <div class ="panel-body">
+                Check Your Grade : <select ng-model='grade'>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                </select>
+                <p> {{grade}}</p>
+            </div>
+            <div ng-switch on ="grade">
+                <p ng-switch-when="A"> Good Job!!!</p>
+                <p ng-switch-when="B"> Good </p>
+                <p ng-switch-when="C"> So So....</p>
+                <p ng-switch-when="D"> Well... sucks</p>
+                <p ng-switch-default> Nothing to say...</p>
+            </div>
+        </div>
+
+        <!-- ng-repeat exercise -->
+        <div class ="panel-primary">
+            <div class ="panel-heading">Your Grades!</div>
+            <div class ="panel-body">
+                <table class="table">
+                    <tr ng-repeat="grade in grades" class="{{ $even ? 'active' : 'warning' }}">
+                        <td> {{$index + 1}}</td>
+                        <td> {{grade.subject}}</td>
+                        <td> {{grade.grade}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ng-class example -->
+        <p ng-class="{padding5: padding, boldText : bold, redFill : red}">Map Syntax Example</p>
+        <input type="checkbox" ng-model="padding"> Padding <br>
+        <input type="checkbox" ng-model="bold"> Bold <br>
+        <input type="checkbox" ng-model="red"> RED Color <br>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script>
+
+        function ExpressCtrl($scope){
+            var product = {
+                cnt : 10,
+                price : 25
+            };
+            $scope.product = product;
+            $scope.grades = [
+                {"subject" : "Korean", "grade" : "A"},
+                {"subject" : "English", "grade" : "B"},
+                {"subject" : "Russian", "grade" : "C"},
+                {"subject" : "Chinese", "grade" : "D"}
+            ]
+        }
+
+        var app = angular.module('exerciseApp', []);
+
+        app.controller('ExpressCtrl', ExpressCtrl);
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+div{
+     margin-top: 10px;
+     margin-right: 15px;
+     margin-left: 15px;
+     margin-bottom: 10px;
+     text-align : center;
+     font-size: large;
+     font-family: -윤고딕350;
+     color : gray;
+ }
+div.panel-primary {
+    background-color: lightpink;
+    margin : auto;
+    padding : 10px;
+    color : white;
+    text-align: left;
+
+}
+div.panel-heading {
+    background-color: dimgray;
+    margin : auto;
+    padding : 10px 5px 5px 10px ;
+    color : white;
+}
+div.panel-body {
+    background-color: white;
+    margin : auto;
+    padding : 10px 5px 5px 10px ;
+}
+table{
+    width: 100%;
+    height: 50px;
+}
+td {
+    border-top : 1px dotted gray;
+}
+tr.active {
+    background-color: aqua;
+}
+.padding5 {
+    padding : 15px;
+    border : 1px dotted blue;
+}
+.boldText {
+    font-weight : bold;
+}
+.redFill {
+    color : red;
+}
