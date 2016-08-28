@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Event & Filter example page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="exerciseApp">
+    <h1>AngularJS Event & Filter example page</h1>
+    <div class="page-container">
+        <div class="page-header">Your Grade</div>
+        <div class="page-body" ng-controller="GradeController">
+            <ul class="list-group">
+                <li ng-repeat="grade in gradeList" class="list-group-item" ng-click="showGrade(grade)">
+                    {{grade.subject}}
+                    <p ng-if="grade.isShow" class="badge"> {{grade.grade}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-container">
+        <div class="page-header">Ï°∞ÏÑ† ?ïÎì§???¨ÏúÑ Í∏∞Í∞Ñ</div>
+        <div class="page-body" ng-controller="KingController">
+            <div class="page-index">
+                Í≤Ä?âÌïòÍ∏?
+                <select ng-model="type" ng-change=changeSearch(type)">
+                    <option value="id">?ÑÏù¥??/option>
+                    <option value="name">?¥Î¶Ñ</option>
+                    <option value="years">?¨ÏúÑÍ∏∞Í∞Ñ</option>
+                </select>
+                <input type="text" ng-model="search[type]">
+                <p><h2>{{search}}</h2></p>
+            </div>
+            <table class="table">
+                <tr>
+                    <th ng-click='criteria = "id"'>?ÑÏù¥??/th>
+                    <th ng-click='criteria = "name"'>?ÑÍ∏à</th>
+                    <th ng-click='criteria = "years"'>?¨ÏúÑÍ∏∞Í∞Ñ</th>
+                </tr>
+                <tr ng-repeat='member in members |filter:search | orderBy: criteria '>
+                    <td> {{member.id}} </td>
+                    <td> {{member.name}} </td>
+                    <td> {{member.years}} </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="page-container">
+        <div class="page-header">Key word Filter</div>
+        <div class="page-body" ng-controller="KeywordController">
+            <p> {{content}}</p>
+            ?ÑÌÑ∞Îß?<input type="text" ng-model="keyword"> ?ÑÌÑ∞Îß?<input type="text" ng-model="subkeyword">
+            <p ng-repeat="str in content | filter:keyword | filter:subkeyword:check"> {{str}}</p>
+        </div>
+    </div>
+    <div class="page-container">
+        <div class="page-header">?åÏõêÎ™©Î°ù</div>
+        <div class="page-body" ng-controller="KeywordController">
+            ?òÏù¥ÏßÄ Î≤àÌò∏ <input type="text" ng-model="page">
+            <table>
+                <tr>
+                    <th ng-click='criteria ="id" '>?ÑÏù¥??/th>
+                    <th ng-click='criteria ="name" '>?¥Î¶Ñ</th>
+                    <th ng-click='criteria ="tel" '>?ÑÌôîÎ≤àÌò∏</th>
+                </tr>
+                <tr ng-repeat="member in members | paging:page">
+                    <td>{{member.id}}</td>
+                    <td>{{member.name}}</td>
+                    <td>{{member.tel}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="ctrl.js"></script>
+    <script src="app.module.js"></script>
+</body>
+</html>

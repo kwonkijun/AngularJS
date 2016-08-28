@@ -1,0 +1,47 @@
+h1 {
+    color : gray;
+}
+div.page-header {
+    margin : 10px 10px 10px 10px;
+    padding : 10px;
+    background-color: indianred;
+    color : white;
+    font-size : 30px;
+}
+div.page-body{
+    margin : 10px;
+    border : 2px solid gray;
+
+}
+div.page-index{
+    margin : 10px;
+    padding : 20px;
+    width : 100%;
+}
+ul.list-group {
+    padding : 10px 50px 10px 10px;
+}
+
+li.list-group-item{
+    padding : 10px;
+    border : 1px solid gray;
+    list-style: none;
+}
+p.badge{
+    padding : 10px;
+    text-align: right;
+    background-color: chocolate;
+    display: inline-block;
+}
+table.table {
+    margin : 20px;
+    padding: 10px 50px 10px 10px;
+    width : 100%;
+}
+
+td{
+
+    padding:20px;
+    border-top : 2px solid gray;
+    text-align: center;
+}
