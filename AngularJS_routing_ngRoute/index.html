@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngRoute Example Page</title>
+</head>
+<body ng-app="myApp">
+    <p><a href="#/">Main</a></p>
+    <a href="#header">header</a>
+    <a href="#contents">contents</a>
+
+    <div ng-view></div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.route.js"></script>
+    <script src="main/ctrl.js"></script>
+    <script src="header/ctrl.js"></script>
+    <script src="contents/ctrl.js"></script>
+</body>
+</html>
